@@ -1,3 +1,4 @@
+import os
 from flask import Flask,render_template,request
 import jsonify
 import requests
@@ -6,7 +7,6 @@ import numpy as np
 import sklearn
 from sklearn.preprocessing import StandardScaler
 from flask_mysqldb import MySQL
-app = Flask(__name__)
 app = Flask(__name__)
 model=pickle.load(open('Logic.pkl' , 'rb'))
 app.config['MYSQL_HOST']= "localhost"
@@ -65,4 +65,5 @@ def predict():
     else:
         return render_template('front.html')
 if __name__=="__main__":
-    app.run(debug=True)
+    port = int(os.environ.get('PORT', 5000))
+    app.run(debug=True,port=port)
