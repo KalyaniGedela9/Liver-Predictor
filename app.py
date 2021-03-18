@@ -57,7 +57,7 @@ def predict():
         A_Globulin=float(request.form['AGRatio'])
         prediction=model.predict([[Age,Gender_Female,Gender_Male,Total_bilirubin,Direct_bilirubin,A_Phosphotase,Al_Aminotransferase,Asparatate,Total_proteins,Albumin,A_Globulin]])
         output=round(prediction[0],2)
-        if output<10:
+        if output<1:
             print("probability of chance:",output)
             return render_template('positive.html',prediction_text="their is chance of getting liver disease")
         else:
