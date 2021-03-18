@@ -8,7 +8,7 @@ import sklearn
 from sklearn.preprocessing import StandardScaler
 from flask_mysqldb import MySQL
 app = Flask(__name__)
-model=pickle.load(open('Logic.pkl' , 'rb'))
+model=pickle.load(open('logic.pkl' , 'rb'))
 app.config['MYSQL_HOST']= "localhost"
 app.config['MYSQL_USER']= "root"
 app.config['MYSQL_PASSWORD']="rootpassword"
